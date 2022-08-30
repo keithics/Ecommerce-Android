@@ -19,12 +19,37 @@ class ProductViewModel @Inject constructor(private val apiService: Api) : ViewMo
             totalDocs = 0
         )
     )
+
+    var product: Product by mutableStateOf(
+        Product(
+            name = "",
+            description = "",
+            priceCurrency = "",
+            price = "",
+            _id = "",
+            image = ""
+        )
+    )
+
+    var currentProductId: String by mutableStateOf("")
+
     var errorMessage: String by mutableStateOf("")
 
     fun productList() {
         viewModelScope.launch {
             try {
                 productPages = apiService.getProducts()
+            } catch (e: Exception) {
+                print(e.message)
+                errorMessage = e.message.toString()
+            }
+        }
+    }
+
+    fun product() {
+        viewModelScope.launch {
+            try {
+                product = apiService.getProduct(currentProductId)
             } catch (e: Exception) {
                 print(e.message)
                 errorMessage = e.message.toString()

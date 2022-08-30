@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun SimpleButton(text: String, textColor: Color, buttonColor: Color, onClick:() -> Unit){
+fun SimpleButton(text: String, textColor: Color, buttonColor: Color, onClick: () -> Unit) {
     Button(
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
@@ -16,7 +16,7 @@ fun SimpleButton(text: String, textColor: Color, buttonColor: Color, onClick:() 
     ) {
         Text(
             color = textColor,
-            text= text
+            text = text
         )
     }
 }

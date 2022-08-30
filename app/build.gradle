@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.keithics.eteaap"
-        minSdk 21
+        minSdk 23
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -77,5 +77,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.37"
     kapt "com.google.dagger:hilt-android-compiler:2.37"
     implementation 'androidx.hilt:hilt-navigation-compose:1.0.0-alpha03'
+
+    implementation 'com.github.SteliosPapamichail:CreditCardHelper:v1.0.0'
+    implementation "com.airbnb.android:lottie-compose:5.2.0"
+
 
 }

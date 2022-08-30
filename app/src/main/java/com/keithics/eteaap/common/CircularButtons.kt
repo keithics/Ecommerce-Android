@@ -14,14 +14,17 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun CircularButtons(icon : ImageVector, description: String, onClick : () -> Unit) {
+fun CircularButtons(icon: ImageVector, description: String, onClick: () -> Unit) {
     IconButton(
-        modifier= Modifier.background(
-            MaterialTheme.colors.primary,
-            shape = CircleShape)
-            .size(25.dp).padding(2.dp),
+        modifier = Modifier
+            .background(
+                MaterialTheme.colors.primary,
+                shape = CircleShape
+            )
+            .size(25.dp)
+            .padding(2.dp),
         onClick = onClick,
-    ){
+    ) {
         Icon(
             icon, description,
             tint = Color.White

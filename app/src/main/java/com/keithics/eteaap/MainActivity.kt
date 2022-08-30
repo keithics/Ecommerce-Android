@@ -16,7 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MaterialTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    Navigation();
+                    Navigation()
                 }
             }
         }

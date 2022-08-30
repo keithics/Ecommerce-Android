@@ -1,5 +1,6 @@
 package com.keithics.eteaap.products
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -8,6 +9,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -20,8 +22,8 @@ fun ProductItem(
     product: Product,
     onNavigateToDetail: (String) -> Unit
 ) {
-    val cartViewModel: CartViewModel = hiltViewModel();
-
+    val cartViewModel: CartViewModel = hiltViewModel()
+    val toast = Toast.makeText(LocalContext.current, "Cart Added", Toast.LENGTH_SHORT)
     Card(
         modifier = Modifier
             .padding(4.dp)
@@ -29,7 +31,7 @@ fun ProductItem(
             .height(125.dp), shape = RoundedCornerShape(2.dp),
         elevation = 0.dp
     ) {
-        Surface() {
+        Surface {
 
             Row(
                 Modifier
@@ -86,7 +88,8 @@ fun ProductItem(
                         Button(
                             shape = RoundedCornerShape(1.dp),
                             onClick = {
-                                cartViewModel.addToCart(product._id,1)
+                                cartViewModel.addToCart(product._id, 1)
+                                toast.show()
                             },
                         )
                         {

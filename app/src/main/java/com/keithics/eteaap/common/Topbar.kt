@@ -16,22 +16,21 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.keithics.eteaap.Screens
 import com.keithics.eteaap.cart.CartViewModel
-import com.keithics.eteaap.products.Screens
 
 @Composable
 fun topbar(
     navController: NavController
 ) {
-    val cartViewModel: CartViewModel = hiltViewModel();
-    val total: Int = cartViewModel.cartTotal;
+    val cartViewModel: CartViewModel = hiltViewModel()
+    val total: Int = cartViewModel.cartTotal
 
     LaunchedEffect(Unit) {
-        cartViewModel.cartList();
+        cartViewModel.cartList()
     }
 
-    TopAppBar(
-    ) {
+    TopAppBar {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween,
@@ -47,7 +46,7 @@ fun topbar(
 
             )
             IconButton(
-                onClick = {navController.navigate(Screens.CartScreen.route) },
+                onClick = { navController.navigate(Screens.CartScreen.route) },
 
                 ) {
                 BadgedBox(badge = {

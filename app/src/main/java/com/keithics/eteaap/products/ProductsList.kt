@@ -18,7 +18,7 @@ fun ProductList(
     navController: NavController,
     onNavigateToDetail: (String) -> Unit
 ) {
-    val productViewModel: ProductViewModel = hiltViewModel();
+    val productViewModel: ProductViewModel = hiltViewModel()
 
     LaunchedEffect(Unit) {
         productViewModel.productList()

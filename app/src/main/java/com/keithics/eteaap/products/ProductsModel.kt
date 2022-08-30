@@ -15,3 +15,7 @@ data class ProductPages(
     val page: Int
 )
 
+
+data class GetProductParam(
+    val id: String
+)

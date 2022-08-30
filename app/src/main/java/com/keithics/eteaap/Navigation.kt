@@ -8,7 +8,6 @@ import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import com.keithics.eteaap.cart.CartView
 import com.keithics.eteaap.products.ProductList
-import com.keithics.eteaap.products.Screens
 import com.keithics.eteaap.products.ProductView
 
 
@@ -46,7 +45,7 @@ fun Navigation() {
         composable(
             route = Screens.CartScreen.route
         ) { _ ->
-           CartView(navController = navController)
+            CartView(navController = navController)
 
         }
 

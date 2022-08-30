@@ -1,4 +1,4 @@
-package com.keithics.eteaap.products
+package com.keithics.eteaap
 
 sealed class Screens(val route: String) {
     object HomeScreen : Screens("home")
