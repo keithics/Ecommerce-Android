@@ -18,6 +18,7 @@ object Network {
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("http://192.168.254.101:8087/public/")
+//            .baseUrl("http://138.68.63.18:3086/public/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

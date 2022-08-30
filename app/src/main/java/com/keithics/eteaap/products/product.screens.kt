@@ -1,6 +1,7 @@
 package com.keithics.eteaap.products
 
-sealed class ProductScreens(val route: String) {
-    object HomeScreen : ProductScreens("home_screen")
-    object DetailScreen : ProductScreens("detail_screen")
+sealed class Screens(val route: String) {
+    object HomeScreen : Screens("home")
+    object DetailScreen : Screens("detail")
+    object CartScreen : Screens("cart")
 }

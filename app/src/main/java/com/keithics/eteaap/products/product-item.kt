@@ -11,13 +11,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberImagePainter
+import com.keithics.eteaap.cart.CartViewModel
 
 @Composable
 fun ProductItem(
     product: Product,
     onNavigateToDetail: (String) -> Unit
 ) {
+    val cartViewModel: CartViewModel = hiltViewModel();
+
     Card(
         modifier = Modifier
             .padding(4.dp)
@@ -36,12 +40,6 @@ fun ProductItem(
                 Image(
                     painter = rememberImagePainter(
                         data = product.image,
-//                        builder = {
-//                            scale(Scale.FILL)
-//                            placeholder(R.drawable.placeholder)
-//                            transformations(CircleCropTransformation())
-//
-//                        }
                     ),
                     contentDescription = product.name,
                     modifier = Modifier
@@ -87,7 +85,9 @@ fun ProductItem(
                         )
                         Button(
                             shape = RoundedCornerShape(1.dp),
-                            onClick = {},
+                            onClick = {
+                                cartViewModel.addToCart(product._id,1)
+                            },
                         )
                         {
                             Text(text = "Add to Cart")

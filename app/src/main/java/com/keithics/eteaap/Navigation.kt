@@ -6,8 +6,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
+import com.keithics.eteaap.cart.CartView
 import com.keithics.eteaap.products.ProductList
-import com.keithics.eteaap.products.ProductScreens
+import com.keithics.eteaap.products.Screens
 import com.keithics.eteaap.products.ProductView
 
 
@@ -18,26 +19,34 @@ fun Navigation() {
 
     NavHost(
         navController,
-        startDestination = ProductScreens.HomeScreen.route,
+        startDestination = Screens.HomeScreen.route,
     ) {
         composable(
-            route = ProductScreens.HomeScreen.route
+            route = Screens.HomeScreen.route
         ) {
 
             ProductList(
                 navController,
                 onNavigateToDetail = { productId: String ->
-                    navController.navigate(ProductScreens.DetailScreen.route + "/" + productId)
+                    navController.navigate(Screens.DetailScreen.route + "/" + productId)
                 })
         }
+
         composable(
-            route = ProductScreens.DetailScreen.route + "/{productId}",
+            route = Screens.DetailScreen.route + "/{productId}",
             arguments = listOf(navArgument("productId") { type = NavType.StringType })
         ) { backStackEntry ->
             ProductView(
                 navController,
                 productId = backStackEntry.arguments?.getString("productId")
             )
+
+        }
+
+        composable(
+            route = Screens.CartScreen.route
+        ) { _ ->
+           CartView(navController = navController)
 
         }
 

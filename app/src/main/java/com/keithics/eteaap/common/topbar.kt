@@ -17,12 +17,14 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.keithics.eteaap.cart.CartViewModel
+import com.keithics.eteaap.products.Screens
 
 @Composable
 fun topbar(
     navController: NavController
 ) {
     val cartViewModel: CartViewModel = hiltViewModel();
+    val total: Int = cartViewModel.cartTotal;
 
     LaunchedEffect(Unit) {
         cartViewModel.cartList();
@@ -45,13 +47,13 @@ fun topbar(
 
             )
             IconButton(
-                onClick = { },
+                onClick = {navController.navigate(Screens.CartScreen.route) },
 
                 ) {
                 BadgedBox(badge = {
                     Badge {
                         Text(
-                            cartViewModel.cartPages.totalDocs.toString()
+                            total.toString()
                         )
                     }
                 }) {
